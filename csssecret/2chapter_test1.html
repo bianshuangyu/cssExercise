@@ -1,0 +1,200 @@
+<html>
+  <header>
+      <title></title>
+      <style>
+        #box1{
+          width:100px;
+          height: 100px;
+          border: 10px solid hsla(0, 0%, 100%, .5);
+          background: rgb(150, 206, 86);
+        }
+        #box2{
+          width:300px;
+          height: 300px;
+          background: darkgray;
+          box-shadow: 0 0 0 2px darkcyan inset,0 0 0 4px darkgoldenrod,0 0 0 6px darkorange;
+          border-radius: 10px; /*box-shadow设置的外边距跟着圆角改变*/
+          display: inline-block;
+        }
+        /* 注意  box-shadow设置的外边距和outline-offset设置的外边距默认不在鼠标点击范围之内*/
+        #box3{
+          /* margin-top: 20px; */
+          width: 100px;
+          height: 100px;
+          background: darkorange;
+          outline: 2px dashed darkblue;
+          border: 5px solid red;
+          /* outline-offset: 10px; */
+          border-radius: 10px;/*outline-offset设置的外边距不跟着圆角走*/
+          display: inline-block;
+        }
+       
+       .img1{
+          width: 200px;
+          height: 200px;
+          padding: 10px;
+          background: url(./imgs/1.png) no-repeat bottom right #58a;
+          /* background-position: right 10px bottom 10px; */
+          background-position: calc(100% - 50px) calc(100% - 50px); /*注意要在calc内部的运算符两侧各添加一个空格，否则会解析错误*/
+          /* background-origin: content-box; */
+          display: inline-block;
+        }
+        #box5{
+          width: 200px;
+          height: 80px;
+          background: darkcyan;
+          border-radius: 10px;
+          padding: 1px;
+          box-shadow: 0 0 0 5px red;
+          outline:6px solid red;
+          display: inline-block;
+        }
+        #box6{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          background: linear-gradient(#fb3,#58a);
+          background: linear-gradient(#fb3 20%,#58a 40%);/*两个数值用于表示渐变的范围*/
+          background: linear-gradient(#fb3 50%,#58a 50%);
+          background: linear-gradient(#fb3 10%,#58a 90%);
+          /* background: linear-gradient(red,black,green); */
+          /* background-size: 100% 30px; */
+        }
+        #box61{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          /* 不等条纹 */
+          /* background: linear-gradient(#fb3 30%,#58a 30%);
+          background-size: 100% 30px; */
+          /* 三种颜色的条纹,水平条纹 */
+          background: linear-gradient(to bottom, #dfa 33.3%,#58a 0, #58a 66.6%, #fb3 0);
+          background-size: 100% 30px;
+          /* 三种颜色的条纹，垂直条纹 */
+          background: linear-gradient(to right, #dfa 33.3%,#58a 0, #58a 66.6%, #fb3 0);
+          background-size: 30px 100%;
+        }
+        #box62{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          background: linear-gradient(45deg, #dfa 50%,#58a 0);
+          background-size: 30px 30px;
+          /* 斜向条纹实现 */
+          background: linear-gradient(45deg, #dfa 25%,#58a 0,#58a 50%,#dfa 0,#dfa 75%,#58a 0);
+          background-size: 30px 30px;
+        }
+        #box63{
+          width:200px;
+          height: 200px;
+          display: inline-block;
+          background: repeating-linear-gradient(to right,#fb3,#58a 30px);
+          background: repeating-linear-gradient(60deg,#fb3,#58a 30px);
+          background: repeating-linear-gradient(60deg,#fb3,#58a 30px);
+
+        }
+        #box64{
+          display: inline-block;
+          width: 200px;
+          height: 200px;
+          background: #58a;
+          background-image: repeating-linear-gradient(45deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,.1) 15px,transparent 0,transparent 30px);
+        }
+        #box7{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          background: linear-gradient(90deg,rgba(200,0,0,.5) 50%,transparent 0),linear-gradient(rgba(200,0,0,.5) 50%,transparent 0);
+          background-size: 30px 30px;
+        }
+        #box7{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          background: #58a;
+          background-image: linear-gradient(90deg,white 1px, transparent 0),linear-gradient(white 1px, transparent 0);
+          background-size: 30px 30px;
+        }
+        #box8{
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          background: rgb(231, 102, 102);
+          background-image: linear-gradient(45deg,#bbb 25%,transparent 0),linear-gradient(45deg,transparent 75%,#bbb 0);
+          background-position: 0 0, 15px 15px;
+          background-size: 30px 30px;
+        }
+        /* 含有背景边框的图片 */
+        #box9{
+          width:200px;
+          height: 200px;
+          background:linear-gradient(white,white),url(./imgs/2.jpg);
+          background-size:cover;
+          padding: 1em;
+          border: 1em solid transparent;
+          background-clip:padding-box,border-box;
+          background-origin: border-box;
+        }
+        @keyframes ants{
+          to{
+            background-position: 100%;
+          }
+        }
+        #box91{
+          width:200px;
+          height: 200px;
+          padding: 1em;
+          border:5px solid transparent;
+          background:linear-gradient(white,white) padding-box,repeating-linear-gradient(-45deg,black 0, black 25%,white 0,white 50%) 0 / .6rem .6rem;
+          /* animation: ants 12s linear infinite; */
+        }
+      </style>
+  </header>
+  <body>
+    <div id="box1">
+      透明边框的实现
+    </div>
+    <div id="box2">
+       使用box-shadow实现多重边框，通过设置水平阴影、垂直阴影、阴影长度的值均为0而设置第四个参数的值的大小来保证外边距的实现，注意连续外边框时距离一次增大，内部距离覆盖外部距离
+    </div>
+    <div id="box3">
+      使用out-line实现多重边框
+    </div>
+    <div id="box4">
+      <div class="img1">hhhh</div>
+    </div>
+    <div id="box5">
+      使用一个元素实现内部圆角边框，外部直角边框并且有一定距离；
+    </div>
+    <div id="box6">
+      线性渐变
+    </div>
+    <div id="box61">
+        线性渐变:不等大小条纹的背景
+    </div>
+    <div id="box62">
+        线性渐变: 斜向条纹
+    </div>
+    <div id="box63">
+      使用repeating-linear-gradient和repeating-radial-gradient进行无限循环重复填满背景
+    </div>
+    <div id="box64">
+      灵活的同色系条纹
+    </div>
+    <div id="box7">
+       网格背景
+    </div>
+    <div id="box71">
+        网格背景：带边框
+     </div>
+     <div id="box8">
+       棋盘
+     </div>
+     <div id="box9">
+       连续的图像边框
+     </div>
+     <div id="box91">
+        蚂蚁行军
+      </div>
+  </body>
+</html>
